@@ -369,12 +369,12 @@ MonoBehaviour:
   tilePrefab: {fileID: 1001329266769159264, guid: f2416093390a270439649b8c98ba9d57,
     type: 3}
   gamePiecePrefabs:
-  - {fileID: 7435014172440012765, guid: 237c419af6ff7d445b1421292482244b, type: 3}
   - {fileID: 5099656037679109100, guid: abd495719faf8d449a24ff5b19e2afb6, type: 3}
   - {fileID: 4426845901460323912, guid: fc1804aaa7eff164cb5a70ec00f648e4, type: 3}
   - {fileID: 6371593480355592783, guid: 73c92b7974d8f1a4b948f9fb538ab267, type: 3}
   - {fileID: 3610831176362223440, guid: 2b979f6e4640dc2448ec28fbf9216f18, type: 3}
   moveDuration: 0.2
+  collapseMultiplier: 0.7
 --- !u!4 &1315984231
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class GamePiece : MonoBehaviour
     Board m_board;
 
     bool m_isMoving = false;
-    float m_moveDuration = .2f;
+    
 
     public InterpType interpolation = InterpType.SmootherStep;
 
@@ -47,20 +47,12 @@ public class GamePiece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.RightArrow))
-        //{
-        //    Move((int)transform.position.x + 1, (int)transform.position.y, .5f);
-        //}
-        //if (Input.GetKeyDown(KeyCode.LeftArrow))
-        //{
-        //    Move((int)transform.position.x - 1, (int)transform.position.y, .5f);
-        //}
+
     }
 
-    public void Init(Board board, float _duration)
+    public void Init(Board board)
     {
         m_board = board;
-        m_moveDuration = _duration;
     }
 
     public void SetCoord(int x, int y)
@@ -69,10 +61,10 @@ public class GamePiece : MonoBehaviour
         yIndex = y;
     }
 
-    public void Move( int destX, int destY)
+    public void Move( int destX, int destY, float timetomove = 0.2f)
     {
         if(!m_isMoving)
-            StartCoroutine(MoveRoutine(new Vector3(destX, destY, 0), m_moveDuration));
+            StartCoroutine(MoveRoutine(new Vector3(destX, destY, 0), timetomove));
     }
 
     IEnumerator MoveRoutine(Vector3 destination, float timeToMove)
