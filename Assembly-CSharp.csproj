@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\GamePiece.cs" />
+    <Compile Include="Assets\Scripts\ParticleManager.cs" />
+    <Compile Include="Assets\Scripts\ParticlePlayer.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/_Current Projects/Unity/Repos/Match Three/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

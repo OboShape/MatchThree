@@ -30,6 +30,9 @@ public class Board : MonoBehaviour
 
     public StartingTile[] startingTiles;
 
+    [SerializeField]
+    private ParticleManager m_particleManager;
+
     [System.Serializable]
     public class StartingTile
     {
@@ -57,10 +60,9 @@ public class Board : MonoBehaviour
 
         FillBoard(15, 1f);
 
+        m_particleManager = GameObject.FindWithTag("ParticleManager").GetComponent<ParticleManager>();
         //HighLightMatches();
     }
-
-    
 
     private void MakeTile(GameObject prefab, int x, int y, int z = 0)
     {
@@ -472,7 +474,7 @@ public class Board : MonoBehaviour
             Destroy(pieceToClear.gameObject);
         }
 
-        HighLightTileOff(x, y);
+        //HighLightTileOff(x, y);
     }
 
     void ClearPieceAt(List<GamePiece> gamePieces)
@@ -482,6 +484,10 @@ public class Board : MonoBehaviour
             if (piece != null)
             {
                 ClearPieceAt(piece.xIndex, piece.yIndex);
+                if(m_particleManager != null)
+                {
+                    m_particleManager.ClearPieceFXAt(piece.xIndex, piece.yIndex);
+                }
             }
         }
     }
@@ -490,8 +496,12 @@ public class Board : MonoBehaviour
     {
         Tile tileToBreak = m_allTiles[x, y];
 
-        if (tileToBreak != null)
+        if (tileToBreak != null && tileToBreak.tileType == TileType.Breakable)
         {
+            if (m_particleManager != null)
+            {
+                m_particleManager.BreatTileFXAt(tileToBreak.breakableValue, x, y, 0);
+            }
             tileToBreak.BreakTile();
         }
     }
@@ -605,7 +615,7 @@ public class Board : MonoBehaviour
 
     IEnumerator RefillRoutine()
     {
-        FillBoard(10, 0.1f);
+        FillBoard(5, 0.1f);
         yield return null;
     }
 
@@ -615,9 +625,9 @@ public class Board : MonoBehaviour
         List<GamePiece> movingPieces = new List<GamePiece>();
         List<GamePiece> matches = new List<GamePiece>();
 
-        HighlightPieces(gamePieces);
+        //HighlightPieces(gamePieces);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
 
         bool isFinished = false;
 
@@ -626,7 +636,7 @@ public class Board : MonoBehaviour
             ClearPieceAt(gamePieces);
             BreakTileAt(gamePieces);
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
 
             movingPieces = CollapseColumn(gamePieces);
 
