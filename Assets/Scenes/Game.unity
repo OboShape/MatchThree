@@ -508,11 +508,39 @@ MonoBehaviour:
   moveDuration: 0.2
   collapseMultiplier: 0.7
   startingTiles:
-  - tilePrefab: {fileID: 6177637018294800149, guid: b9dda51f5aae55840bb3bfc9013a3144,
-      type: 3}
-    x: 1
-    y: 1
+  - prefab: {fileID: 244817659985500170, guid: bb853d9887982ac4499bfd726ca8e2d1, type: 3}
+    x: 2
+    y: 3
     z: 0
+  - prefab: {fileID: 244817659985500170, guid: bb853d9887982ac4499bfd726ca8e2d1, type: 3}
+    x: 4
+    y: 3
+    z: 0
+  - prefab: {fileID: 244817659985500170, guid: bb853d9887982ac4499bfd726ca8e2d1, type: 3}
+    x: 3
+    y: 2
+    z: 0
+  - prefab: {fileID: 7739158973570183637, guid: 7a6b64fb0c4b84d43aeb676a49a01bac,
+      type: 3}
+    x: 2
+    y: 2
+    z: 0
+  - prefab: {fileID: 7739158973570183637, guid: 7a6b64fb0c4b84d43aeb676a49a01bac,
+      type: 3}
+    x: 4
+    y: 2
+    z: 0
+  - prefab: {fileID: 6177637018294800149, guid: b9dda51f5aae55840bb3bfc9013a3144,
+      type: 3}
+    x: 3
+    y: 7
+    z: 0
+  - prefab: {fileID: 6177637018294800149, guid: b9dda51f5aae55840bb3bfc9013a3144,
+      type: 3}
+    x: 3
+    y: 8
+    z: 0
+  startingGamePieces: []
   m_particleManager: {fileID: 0}
 --- !u!4 &1315984231
 Transform:
